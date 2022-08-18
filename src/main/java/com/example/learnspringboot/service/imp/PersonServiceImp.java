@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Service
 public class PersonServiceImp implements PersonService {
-    PersonRepository personRepository;
+    private final PersonRepository personRepository;
 
     public PersonServiceImp(PersonRepository personRepository) {
         this.personRepository = personRepository;
