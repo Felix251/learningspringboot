@@ -45,4 +45,14 @@ public class PersonServiceImp implements PersonService {
     public void deletePerson(Long id) {
         personRepository.deleteById(id);
     }
+
+    @Override
+    public Person modifyPerson(Long id, Person person) {
+        Person existingPerson = personRepository.getOne(id);
+        existingPerson.setFirstName(person.getFirstName());
+        existingPerson.setLastName(person.getLastName());
+        existingPerson.setAge(person.getAge());
+        personRepository.save(existingPerson);
+        return personRepository.save(existingPerson);
+    }
 }

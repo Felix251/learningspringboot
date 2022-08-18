@@ -28,6 +28,11 @@ public class PersonController {
         personService.create(person);
         return personService.getAllPerson();
     }
+    @PutMapping("/{id}")
+    public  List<Person> modifyPerson(@PathVariable Long id, @RequestBody  Person person){
+        personService.modifyPerson(id, person);
+        return personService.getAllPerson();
+    }
     @DeleteMapping("/{id}")
     public List<Person> deletePerson(@PathVariable Long id){
         personService.deletePerson(id);
