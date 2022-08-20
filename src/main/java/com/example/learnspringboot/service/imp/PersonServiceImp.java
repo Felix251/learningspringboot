@@ -55,4 +55,10 @@ public class PersonServiceImp implements PersonService {
         personRepository.save(existingPerson);
         return personRepository.save(existingPerson);
     }
+
+    @Override
+    public List<Person> getPersonBYDepartementId(Long id) {
+        return personRepository.findByDepartement_Id(id);
+    }
+
 }

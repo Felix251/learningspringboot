@@ -17,4 +17,6 @@ public interface PersonService {
 
     Person modifyPerson(Long id, Person person);
 
+    List<Person> getPersonBYDepartementId(Long id);
+
 }

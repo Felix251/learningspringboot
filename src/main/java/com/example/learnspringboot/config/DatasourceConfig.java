@@ -12,7 +12,7 @@ public class DatasourceConfig {
 //    public DataSource getDataSource(){
 //        DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
 //        dataSourceBuilder.driverClassName("com.mysql.cj.jdbc.Driver");
-//        dataSourceBuilder.url("jdbc:mysql://localhost:3306/learningspringboot?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true");
+//        dataSourceBuilder.url("jdbc:mysql://localhost:3306/learningspringboot?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&createDatabaseIfNotExist=true");
 //        dataSourceBuilder.username("root");
 //        dataSourceBuilder.password("passer");
 //        return dataSourceBuilder.build();

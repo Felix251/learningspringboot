@@ -1,13 +1,15 @@
-package com.example.learnspringboot.controller;
+package com.example.learnspringboot.controller.api;
 
 import com.example.learnspringboot.model.Person;
 import com.example.learnspringboot.service.PersonService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/person")
+@RequestMapping("/api/v1/person")
 public class PersonController {
      private final PersonService personService;
 
@@ -20,13 +22,17 @@ public class PersonController {
         return personService.getAllPerson();
     }
     @GetMapping("/fnln")
-    public Person findByFirstnameAndLastname(@RequestParam("firstname") String firstname, @RequestParam("lastname") String lastname){
-        return personService.getPersonByFirstnameAndLastname(firstname, lastname);
+    public ResponseEntity<Person> findByFirstnameAndLastname(@RequestParam("firstname") String firstname, @RequestParam("lastname") String lastname){
+        return new ResponseEntity<>(personService.getPersonByFirstnameAndLastname(firstname, lastname), HttpStatus.OK);
+    }
+    @GetMapping("departement/{id}")
+    public ResponseEntity<List<Person>> findByDepartementId(@PathVariable Long id){
+        return new ResponseEntity<>(personService.getPersonBYDepartementId(id), HttpStatus.OK);
     }
     @PostMapping
-    public List<Person> createPerson(@RequestBody Person person){
+    public ResponseEntity<List<Person>> createPerson(@RequestBody Person person){
         personService.create(person);
-        return personService.getAllPerson();
+        return new ResponseEntity<>(personService.getAllPerson(), HttpStatus.CREATED);
     }
     @PutMapping("/{id}")
     public  List<Person> modifyPerson(@PathVariable Long id, @RequestBody  Person person){

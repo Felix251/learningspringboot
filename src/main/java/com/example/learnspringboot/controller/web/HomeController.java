@@ -1,4 +1,4 @@
-package com.example.learnspringboot.controller;
+package com.example.learnspringboot.controller.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

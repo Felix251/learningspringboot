@@ -15,15 +15,22 @@ public class Person {
     @Column(name = "age")
     private int age;
 
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "departement_id", nullable = false)
+    private Departement departement;
+
     public Person() {
 
     }
 
-    public Person(String firstName, String lastName, int age) {
+    public Person(String firstName, String lastName, int age, Departement departement) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+        this.departement = departement;
     }
+
+
 
     public String getFirstName() {
         return firstName;
@@ -45,6 +52,14 @@ public class Person {
         return age;
     }
 
+    public Departement getDepartement() {
+        return departement;
+    }
+
+    public void setDepartement(Departement departement) {
+        this.departement = departement;
+    }
+
     public void setAge(int age) {
         this.age = age;
     }
@@ -56,6 +71,7 @@ public class Person {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
+                ", departement=" + departement +
                 '}';
     }
 }
