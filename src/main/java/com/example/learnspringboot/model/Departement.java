@@ -15,9 +15,9 @@ public class Departement {
     private Long id;
     private String name;
 
-//  @OneToMany(mappedBy = "departement")
-////    @JsonIgnore
-//    private List<Person> persons = new ArrayList<>();
+    @OneToMany(mappedBy = "departement", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<Person> persons = new ArrayList<>();
 
     public Departement() {
 
